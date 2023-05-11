@@ -35,12 +35,14 @@ module Capybara
                 save_html if @html_save
               rescue StandardError => e
                 warn "WARN: HTML source could not be saved. An exception is raised: #{e.inspect}."
+                raise e
               end
 
               begin
                 save_screenshot
               rescue StandardError => e
                 warn "WARN: Screenshot could not be saved. An exception is raised: #{e.inspect}."
+                raise e
               end
             end
           end
